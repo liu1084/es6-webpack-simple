@@ -19,12 +19,28 @@
 			<li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
 		</ul>
 
-		<button v-on:click="bar">foo</button>
+		<section>
+			<label>Lambda:</label>
+			<button v-on:click="bar">foo</button>
+		</section>
+
+		<section>
+			<label>let & const</label>
+			<button v-on:click="fooLet">let</button>
+			<button v-on:click="barConst">const</button>
+		</section>
 	</div>
 </template>
 
 <script>
-import Lambda from './assets/js/lambda.js'
+	//ES6
+	//import Lambda from './assets/js/lambda.js'
+	//import LetAndConst from './assets/js/LetAndConst'
+
+
+	//CommonJS
+	let Lambda = require('./assets/js/lambda');
+	let LetAndConst = require('./assets/js/LetAndConst');
 	export default {
 		name: 'app',
 		data: function () {
@@ -35,7 +51,9 @@ import Lambda from './assets/js/lambda.js'
 		methods: {
 			foo: Lambda.foo,
 			hello: Lambda.hello,
-			bar: Lambda.bar
+			bar: Lambda.bar,
+			fooLet: LetAndConst.fooLet,
+			barConst: LetAndConst.barConst
 		}
 	}
 </script>
